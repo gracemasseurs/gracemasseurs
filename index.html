@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Grace's Github </title>
+    <style type="text/css">
+
+    body{
+        background-color: rgb(179, 179, 179);
+    }
+    .wrapper{
+        width:1000px;
+        margin:auto;
+        padding: 5px;
+        padding-top: 40px; 
+        background-color:rgb(204, 224, 255);
+                }
+    h1{
+        text-align: center;
+        border-top: 1px solid #ffffff;
+        padding-top: 10px;
+        border-bottom: 1px solid #ffffff;
+        padding-bottom: 10px;
+        }
+
+    h2{
+        text-align: center;
+    }
+
+    h3{
+        text-align: center;
+    }
+    h5{
+        font-size:140%;
+
+    }
+    p{
+        text-align: center;
+    }
+    .end{
+        text-align: left;
+        
+    }
+
+    .imageSize{
+        width: 800px;
+        margin-bottom: 10px;
+        padding-left: 100px;
+        
+    }
+    .videoDiv{
+        margin-bottom: 10px;
+        padding-left: 190px;
+    }
+
+    </style>
+</head>
+<body>
+        <div class="wrapper">
+
+<h1>MY DRAWING APPLICATION</h1>
+            
+<p>My aim is to make a drawing application: a potentially shippable product</p>
+<p>I made nine different sprints to reach my aim, below is the planning, testing and finished products as a result of these sprints</p>
+<p>Click on the links to access my drawing application sprints</p>
+
+<h1>RELEVANT IMPLICATIONS </h1>
+
+<h5>Future Proofing </h5>
+<p class = "end">  Program is designed so new features can be added easily and old ones removed
+<br> Adressed   - in the way the program has been designed. Project elements(
+    colours, buttons, shapes) have all been programmed as objects,  means each object is a self-contained, modular piece of code, 
+    that takes a defined set of parameters to work,(may take basic mouse data and color), all objects are built to a similar 
+    structure and compulsory contain an update function which means they can appear on the interface using the update call, 
+    management of most of the objects happens in a central place (control object), the idea is that an experienced programmer 
+    would easily be able to remove elements or add new features, comments are also precise and informative.  
+ <p>
+
+<p class = "end"> Functionality - does the program work well? Is it free of bugs? loads quickly? works on different browsers? 
+        have we addressed this? Program is pure javascript, has no graphics, so loads very quicky, 
+        I have tested by using a live web server to store my versions and have observed loading performance <br>
+        - To ensure the program works well I have systematically tested it, tested user interactions
+         (position of clicking and direction of dragging. This has included careful checks around boundaries. 
+         The use of the Math.abs function was discovered after testing failures drawing circular shapes(because 
+         these objects where being given negative radius values).<br>
+         Any new components were tested prior to being added to the main program. At various stages in sprints, 
+         console logging was used to analyze boundary test functions, and locate problems when bugs appeared.
+    </p>
+
+<h5>Examples of Trialing and Making Decisions</h5>
+<p class ="end"> Can you find examples of exploring different options and making a decision about which is the best solution?
+        <br> - Trying to figure out doing buttons for different line widths so that the user is able to choose what size the line will be. 
+        <br> - Trying to created the guided shape(each shape has their own guided shape)
+        <br> - what the best way was to do the colour buttons (which was by loops)
+
+</p>
+
+<p class = "end">Effectively using information from testing and trialing to 
+    improve the functionaility of the outcome.
+    <br> - Interface design trialing color themes 
+    <br> - Different line width sizes 
+    <br> - Changing the transparency of the colors - look too similar 
+    <br> - figuring out sizing for the brush sizes(don't want them too similar)
+    <br> - changing the colour scheme (which ones go together)
+    
+    </p>
+
+<p class = "end">How did your working process(planning, testing, trialing)lead to the development of a 
+    high-quality digital outcome? 
+    <br> How was the Agile process helpful?
+    <br> - Allowed planning and development to happen together
+    <br> - Created repeated cycles of plan - develop - test.
+    <br> - after two or three sprints I got a much clearer idea 
+            of what I could achieve and my aims became much more focused and realistic 
+
+    </p>
+
+<!---- Sprint One starts below here -->  
+<h1>SPRINT ONE</h1>
+
+<p>When the user presses down on the mouse and drags, a rectangle appears and when the mouse is released, the rectangle will stay on the screen</p>
+<p> My aim for the my first sprint is to create a simple drawing area on a canvas and be able to draw a rectangle inside of the drawing area. 
+    This program should allow the user to drag a rectangle out within a boundary box (drawing area) by the mouse location and mouse start.
+    When the rectangle has been created, it should be coloured in and remain on the screen.</p>
+<h3>Link to Sprint One - <a href = "v2/canvas.html">Sprint One </a> </h3>
+
+<h2>My Trello Plan </h2>
+<div><img class="imageSize" src="Trello/SPRINTONE.png"></div>
+
+<p>This is the planning I did before I began coding for my boundary rectangle. 
+    Where normally the shape would disaapear after the mouse leaves the boundary rectangle, 
+    by putting inplace the mMove(e) {} as seen in my notes ensured that the user could 
+    still draw a shape after the mouse leaves the boundary. </p>
+<div><img class="imageSize" src="Planning/S1Planning.JPG"></div>
+
+<p> This first test uses console logging to test if my boundary function is working properly </p>
+<p> and determines whether the mouse is inside the boundary rectangle or outside </p>
+
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S1Test1.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<p> This second test shows that the user is able to drag a rectangle inside the boundary and a rectangle appears at different co-ordinates </p>
+<p> It also shows how a user cannot drag a rectangle when the xMouseStart and yMouseStart are outside of the boundary rectangle </p>
+
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S1Test2.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<p> This third test shows how the rectangle cannot be drawn outside of the rectangle boundary however, when the mouse is outside of the boundary the shape can still be drawn and clings to the edges. </p>
+
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S1Test3.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<!---- Sprint Two starts below here -->  
+<h1>SPRINT TWO</h1>
+
+<p>The aim of my second sprint is for the user to be able to draw an ellipse inside the boundary instead of a rectangle</p>
+
+<h3>Link to Sprint Two - <a href = "v3/canvas.html">Sprint Two </a> </h3>
+
+<h2>My Trello Plan </h2>
+<div><img class="imageSize" src="Trello/SPRINTTWO.png"></div>
+
+<p> This test shows that an ellipse can be drawn on the canvas. The test shows that the ellipse cannot be drawn from outside of the boundary to inside however can be drawn from inside of the boundary out.</p>
+
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S2Test1.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<!---- Sprint Three starts below here -->  
+<h1>SPRINT THREE</h1>
+
+<p>My aim for Sprint Three is to have two buttons where the user can switch 
+   between a rectangle and an ellipse being dragged across the boundary rectangle. 
+   Therefore, I am making a new file for the button. </p>
+<h3>Link to Sprint Three - <a href = "v5/canvas.html">Sprint Three </a> </h3>
+
+<h2>My Trello Plan </h2>
+<div><img class="imageSize" src="Trello/SPRINTTHREE.png"></div>
+
+<p> This test shows how the buttons are working and the shapes can be switched between one another.</p>
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S3Test1.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<!---- Sprint Four starts below here -->  
+<h1>SPRINT FOUR</h1>
+
+<p> My aim for Sprint Four is to allow the user the choice of what colour the chosen shape is. 
+    My aim is to include multiple different colours (rainbow) with different tones of each.
+    For example, light pink, a mix between pink and red, red. </p>
+
+<h3>Link to Sprint Four - <a href = "v6/canvas.html">Sprint Four </a> </h3>
+
+<h2>My Trello Plan </h2>
+<div><img class="imageSize" src="Trello/SPRINTFOUR.png"></div>
+
+<p>This test shows that the default shade is black. The test also demonstrates how the user can change between colours and shapes easily. </p>
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S4Test1.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<!---- Sprint Five starts below here -->  
+<h1>SPRINT FIVE</h1>
+
+<p>The aim of this sprint is for the user to have more choice with the drawings they create. 
+   This can be achieved by adding in another shape option - circle. Also, by adding reset and undo buttons, 
+   I aim to make the usability of this program simpler. </p>
+<h3>Link to Sprint Five - <a href = "v7/canvas.html">Sprint Five </a> </h3>
+
+<h2>Circle Trello Plan </h2>
+<div><img class="imageSize" src="Trello/SPRINTFIVE1.png"></div>
+
+<h2>Reset and Undo Trello Plan </h2>
+<div><img class="imageSize" src="Trello/SPRINTFIVE2.png"></div>
+
+<p>This test shows that the circle can be drawn with different colours and the rectangle boundary is 
+   still working with a different shape put it. This video shows how the circle button is working in 
+   conjunction with the other two buttons and now the user can switch between three shapes.</p>
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S5Test1.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<p>This test shows the undo button working with different shapes and how they are erasing one by one when the undo button is clicked.</p>
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S5Test2.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<p>This test shows the reset button working. Once clicked, the canvas is cleared and the user can start again.</p>
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S5Test3.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<!---- Sprint Six starts below here -->  
+<h1>SPRINT SIX</h1>
+
+<p>My aim for my sixth sprint is to give the user more options - in this case, 
+   to be able to draw a line on the canvas. Eventually I hope to have the line not 
+   have a set width however, I will do that in future sprints.</p>
+<h3>Link to Sprint Six - <a href = "v8/canvas.html">Sprint Two </a> </h3>
+
+<h2>My Trello Plan </h2>
+<div><img class="imageSize" src="Trello/SPRINTSIX.png"></div>
+
+<p>This test shows that the user can draw a line and choose its colour. It shows the buttons working together with all the shapes.</p>
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S6Test1.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<!---- Sprint Seven starts below here -->  
+<h1>SPRINT SEVEN</h1>
+
+<p>My aim for sprint seven is to include a brush option for the user. Thus, enabling more freedom for the user as the brush is not limited to one direction.</p>
+<h3>Link to Sprint Seven - <a href = "v9/canvas.html">Sprint Seven </a> </h3>
+
+<h2>My Trello Plan </h2>
+<div><img class="imageSize" src="Trello/SPRINTSEVEN.png"></div>
+
+<p>This test shows the brush working with different colours and can be switched between different shapes. It also shows how the brush feature is limited to the rectangle boundary.</p>
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S7Test1.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<!---- Sprint Eight starts below here -->  
+<h1>SPRINT EIGHT</h1>
+
+<p>My aim for sprint eight is to allow more options for my user in terms of colour. 
+   By keeping the same colours as I already have however, adding transparencies the 
+   user can layer shapes over one another. I will also add a square shape, thus making 
+   the program look more put together as all the spaces have been filled and there is more choice for the user. </p>
+
+<h3>Link to Sprint Eight - <a href = "v10/canvas.html">Sprint Eight </a> </h3>
+
+<h2>My Trello Plan </h2>
+<div><img class="imageSize" src="Trello/SPRINTEIGHT.png"></div>
+
+<h2>Pictured below is my square not co-operating - 
+    this is before the issue was resolved and the sqaure could leave the boundary rectangle </h2>
+<div><img class="imageSize" src="Planning/SquareNotWorking.png"></div>
+
+<p>This test shows the square working and shows how they colours layer over each other. </p>
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S8Test1.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<p>This test shows the transparent colours working and layering on each other.</p>
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S8Test2.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<!---- Sprint Nine starts below here -->  
+<h1>SPRINT NINE</h1>
+
+<p>My aim for my ninth sprint is for the user to be able to change the width of the line. 
+   With sizes ranging from extra small to extra large.</p>
+
+<h3>Link to Sprint Nine - <a href = "v11/canvas.html">Sprint Nine </a> </h3>
+
+<h2>My Trello Plan </h2>
+<div><img class="imageSize" src="Trello/SPRINTNINE.png"></div>
+
+<p>This test shows the line width switching between different sizes.</p>
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S9Test1.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<!---- Sprint Ten starts below here -->  
+<h1>SPRINT TEN - MY FINAL SPRINT</h1>
+
+<p>My aim for my tenth and final sprint is for the brush to have multiple sizes to choose from. 
+   I also aim to have text at the bottom so the user knows what to do and to have a user friendly interface.</p>
+
+<h3>Link to Sprint Ten - <a href = "v14/canvas.html"> Final Program </a> </h3>
+
+<h2>My Trello Plan </h2>
+<div><img class="imageSize" src="Trello/SPRINTTEN.png"></div>
+
+<p>This test shows the brush radius switching between different sizes.</p>
+<div class="videoDiv"><video width="600"  controls>
+    <source src="Videos/S10Test1.mp4" type="video/mp4">
+    </video>
+    </div>
+
+<h1>AS 91906 & AS 91907 </h1>
+
+</body>
+</html>
